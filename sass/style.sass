@@ -10,7 +10,7 @@ body
 .header 
 	padding: 0 11px
 	@extend %clearfix
-	@extend %bg-main
+	background: url(../images/bg-header.gif) 0 0 repeat
 	.header__link 
 		float: left
 		width: 77%
@@ -27,6 +27,7 @@ body
 		position: relative
 		input 
 			border: 1px solid #9fa4a6
+			border-radius: 2px 
 			width: 100%
 			border-bottom: 1px solid #c7cacd
 			padding: 6px
@@ -45,20 +46,30 @@ body
 			height: 23px
 			background: url(../images/search.gif)
 .header-logo
-	padding: 11px 10px
+	padding: 6px 10px 0
+	@extend %clearfix
 	.logo
-		width: 35%
+		width: 30%
 		float: left
+		a 	
+			display: block
+			box-sizing: border-box
+			padding: 5px 0
+			img
+				width: 100%
+				height: auto
 	.contact
-		width: 54%
+		width: 50%
 		float: left
+		padding-left: 30px
 		@extend %clearfix
 		&__phone
-			width: 40%
+			width: 42%
 			float: left
 			position: relative
+			padding: 12px 10px 0
 			.phone
-				font-size: 16px
+				font-size: 14px
 				font-weight: 600
 				display: inline-block
 				b 
@@ -66,30 +77,58 @@ body
 					color: #fb053f
 			.time-work
 				display: inline-block
+
 		&__call
-			width: 30%
+			width: 23%
 			float: left
 			position: relative
+			padding: 21px 5px
+			box-sizing: border-box
 			&::after
 				content: ''
 				width: 16px
 				height: 34px
 				position: absolute
-				top: 6px
-				left: -22px
+				top: 19px
+				left: -23px
 				background: url(../images/icon-phone.gif)
 			a 
 				display: inline-block
 				font-weight: bold
+				&:hover
+					color: #86ab27
 		&__account
 			width: 30%
 			float: left
+			position: relative
+			padding: 19px 0 0
+			&::after
+				content: ''
+				width: 16px
+				height: 15px
+				position: absolute
+				top: 20px
+				left: -18px
+				background: url(../images/icon-man.gif)
 			a 
-				display: inline-block
+				display: block
 				font-weight: bold
+				padding: 2px 0
+				&:hover
+					color: #86ab27
 	.card-order
 		width: 10%
 		float: left
+		padding: 10px 10px 5px 56px
+		position: relative
+		&::after
+			content: ''
+			position: absolute
+			top: 12px
+			left: 8px
+			background: url(../images/icon-card.gif)
+			width: 39px
+			height: 35px
 		.card-main
 			font-size: 18px
 			font-weight: bold
@@ -97,3 +136,206 @@ body
 		.card-text
 			font-size: 12px
 			display: inline-block
+			padding: 6px 0
+.header-catalog
+	background: url(../images/bg_catalog_menu.gif) 0 0 repeat
+	padding: 2px 0
+	a 
+		display: inline-block
+		font-family: 'Ubuntu Condensed', sans-serif
+		text-transform: uppercase
+		font-size: 12px
+		letter-spacing: -1px
+		color: #696565
+		border-right: 1px solid #b6b7ba
+		padding: 12px 12px 14px 16px
+		box-sizing: border-box
+	.link-drop
+		padding: 9px 32px 14px 10px
+		position: relative
+		&:after
+			content: ''
+			display: block
+			position: absolute
+			border: 5px solid transparent
+			top: 12px
+			right: 4px
+			border-top-color: #9f9fa0
+	.last-link
+		border: 0
+		padding: 9px 12px 14px 9px
+		position: relative
+		&:after
+			content: ''
+			display: block
+			position: absolute
+			border: 5px solid transparent
+			top: 12px
+			right: -5px
+			border-top-color: #9f9fa0
+.slider-box
+	img
+		width: 100%
+		height: 100%
+.banner
+	@extend %clearfix
+	padding: 2px 14px
+	margin: 30px 0
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-around
+	&--box
+		width: 49%
+		margin: 3px 2px 15px
+		border: 1px solid #999999
+		border-radius: 3px
+		&__main
+			padding: 24px 23px 15px
+		.box-main
+			background: url(../images/bg-main.gif) 0 0 repeat
+			box-sizing: border-box
+			font-size: 2.6em	
+			text-align: center
+			border-radius: 4px
+			a 
+				width: 100%
+				display: inline-block
+				padding: 11px
+				color: #fff
+				&:hover
+					color: #e31339
+		.box-text
+			display: block
+			font-size: 1.2em
+			padding: 14px 7px
+		&__checed
+			background: #f2f2f2
+			width: 100%
+			font-size: 16px
+			padding: 13px 0
+			a 
+				padding-left: 56px
+				position: relative
+				&::before
+					content: ''
+					position: absolute
+					top: -3px
+					left: 22px
+					background: url(../images/icon-cheked.gif)
+					width: 20px
+					height: 20px
+		&__order
+			padding: 10px 0 6px
+			@extend %clearfix
+			.order-text
+				width: 49%
+				float: left
+				text-align: center
+				padding: 13px 0
+				.order-main
+					color: #e31339
+					font-size: 2em
+					display: block
+				.order-calc
+					color: #e31339
+					font-size: 1.3em
+					display: block
+					padding: 8px 0
+					position: relative
+					text-decoration: underline
+					&::before
+						content: ''
+						position: absolute
+						top: 10px
+						left: 57px
+						background: url(../images/icon-calculator.gif)
+						width: 14px
+						height: 17px
+			&__btn
+				width: 51%
+				float: left
+				box-sizing: border-box
+				.order-btn
+					background: #e31339
+					color: #fff
+					font-size: 2em
+					border: 0
+					border-radius: 4px
+					margin: 17px 0
+					padding: 5px 61px
+		&__slider
+			background: #f2f2f2
+			.slider-main
+				font-weight: bold
+				font-size: 1.3em
+				text-align: center
+				padding: 14px 0 10px
+.slider-order
+	margin-bottom: 0
+.slider-box
+	@extend %clearfix
+.slider-content
+	border: 1px solid #999999
+	width: 42%
+	float: left
+	margin: 9px 17px 
+	text-align: center
+	background: #fff
+	img 
+		width: 100%
+		height: auto
+.slider-text
+	display: inline-block
+	font-size: 1.2em
+	color: #4e5a6b
+	text-decoration: underline
+	padding: 13px 26px 5px 8px
+	a 	
+		color: #4e5a6b
+.slider-price
+	display: inline-block
+	padding: 10px 1px 10px 8px
+	color: #999999
+	font-size: 1.5em
+	a 
+		color: #999999
+		border-bottom: 2px solid #999999
+		font-weight: bold
+.slider-price2
+	display: inline-block
+	padding: 10px 1px 10px 8px
+	font-size: 1.5em
+	a 
+		color: #f70426
+		border-bottom: 2px solid #f70426
+.slider-btn
+	font-size: 16px
+	font-weight: bold
+	border: 0
+	border-radius: 200px
+	padding: 9px 42px 
+	margin: 1px 2px 13px
+	background: url(../images/button_order.png) no-repeat
+	&:hover
+		background-position: 0 -35px
+		color: #f70426
+.banner-link
+	margin: 0
+	padding: 7px 0
+	font-size: 1.3em
+	text-align: center
+	position: relative
+	a 
+		&::after
+			content: ''
+			position: absolute
+			top: 10px
+			right: 149px
+			background: url(../images/icon-arrow.gif)
+			width: 15px
+			height: 15px
+.service
+	display: flex
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-around
