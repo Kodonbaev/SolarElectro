@@ -3,24 +3,27 @@
 body
 	font-family: 'Trebuchet MS', sans-serif
 	font-size: 12px
+	background: rgb(136,142,151)
+	background: -moz-linear-gradient(top, rgba(136,142,151,1) 0%, rgba(235,236,236,1) 31%, rgba(117,126,143,1) 70%, rgba(170,172,176,1) 100%)
+	background: -webkit-linear-gradient(top, rgba(136,142,151,1) 0%,rgba(235,236,236,1) 31%,rgba(117,126,143,1) 70%,rgba(170,172,176,1) 100%)
+	background: linear-gradient(to bottom, rgba(136,142,151,1) 0%,rgba(235,236,236,1) 31%,rgba(117,126,143,1) 70%,rgba(170,172,176,1) 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#888e97', endColorstr='#aaacb0',GradientType=0 )
+	background-repeat: no-repeat
+	background-attachment: fixed
 .container
 	max-width: 1000px
 	width: 100%
 	margin: 0 auto
+	background: #fff
 .header 
 	padding: 0 11px
 	@extend %clearfix
 	background: url(../images/bg-header.gif) 0 0 repeat
-	.header__link 
+	&__menu
 		float: left
 		width: 77%
-		a 
-			display: inline-block
-			font-size: 14px
-			color: #fff
-			padding: 10px 14px
-	.header__btn 
-		float: left
+	&__btn 
+		float: right
 		width: 23%
 		padding: 3px 5px
 		box-sizing: border-box
@@ -45,12 +48,70 @@ body
 			width: 22px
 			height: 23px
 			background: url(../images/search.gif)
+			+mobile
+				display: none
+.menu
+	+mobile
+		position: fixed
+		width: 100%
+		z-index: 100
+	&__icon
+		display: none
+		+mobile
+			display: block
+			position: relative
+			left: 23px 
+			right: 0
+			box-sizing: border-box
+			border: 1px solid #9f9898
+			width: 37px
+			height: 31px
+			margin: 4px
+			border-radius: 3px
+			cursor: pointer
+			background: #fb053f
+			&:hover
+				background: transparent
+			.fa-bars
+				font-size: 26px
+				color: #fff 
+				padding: 3px 7px		
+	&__nav
+
+		+mobile
+			position: absolute
+			top: 35px
+			right: 20px
+			text-align: center
+			width: 93%
+			border: 1px solid #d9d9d9
+			border-radius: 3px
+			display: none
+			z-index: 10
+			background: rgba(139,145,152,0.9)
+		a 
+			display: inline-block
+			font-size: 14px
+			color: #fff
+			padding: 10px 14px
+			&:hover
+				color: #e5113a
+			+mobile
+				width: 93%
+				font-size: 1.5em
+				&:hover
+					background: #8b9198
+.menu__icon:hover + .menu__nav,
+.menu__nav:hover
+	display: block	
 .header-logo
 	padding: 6px 10px 0
 	@extend %clearfix
 	.logo
 		width: 30%
 		float: left
+		+mobile
+			width: 100%
 		a 	
 			display: block
 			box-sizing: border-box
@@ -58,85 +119,93 @@ body
 			img
 				width: 100%
 				height: auto
-	.contact
-		width: 50%
+.contact
+	width: 50%
+	float: left
+	padding-left: 30px
+	@extend %clearfix
+	+mobile 
+		width: 95%
+	&__phone
+		width: 42%
 		float: left
-		padding-left: 30px
-		@extend %clearfix
-		&__phone
-			width: 42%
-			float: left
-			position: relative
-			padding: 12px 10px 0
-			.phone
-				font-size: 14px
-				font-weight: 600
-				display: inline-block
-				b 
-					font-size: 21px
-					color: #fb053f
-			.time-work
-				display: inline-block
-
-		&__call
-			width: 23%
-			float: left
-			position: relative
-			padding: 21px 5px
-			box-sizing: border-box
-			&::after
-				content: ''
-				width: 16px
-				height: 34px
-				position: absolute
-				top: 19px
-				left: -23px
-				background: url(../images/icon-phone.gif)
-			a 
-				display: inline-block
-				font-weight: bold
-				&:hover
-					color: #86ab27
-		&__account
-			width: 30%
-			float: left
-			position: relative
-			padding: 19px 0 0
-			&::after
-				content: ''
-				width: 16px
-				height: 15px
-				position: absolute
-				top: 20px
-				left: -18px
-				background: url(../images/icon-man.gif)
-			a 
-				display: block
-				font-weight: bold
-				padding: 2px 0
-				&:hover
-					color: #86ab27
-	.card-order
-		width: 10%
-		float: left
-		padding: 10px 10px 5px 56px
 		position: relative
+		padding: 12px 10px 0
+		.phone
+			font-size: 14px
+			font-weight: 600
+			display: inline-block
+			b 
+				font-size: 21px
+				color: #fb053f
+		.time-work
+			display: inline-block
+
+	&__call
+		width: 23%
+		float: left
+		position: relative
+		padding: 21px 5px
+		box-sizing: border-box
 		&::after
 			content: ''
+			width: 16px
+			height: 34px
 			position: absolute
-			top: 12px
-			left: 8px
-			background: url(../images/icon-card.gif)
-			width: 39px
-			height: 35px
-		.card-main
-			font-size: 18px
+			top: 19px
+			left: -23px
+			background: url(../images/icon-phone.gif)
+		a 
+			display: inline-block
 			font-weight: bold
-			display: inline-block
-		.card-text
-			font-size: 12px
-			display: inline-block
-			padding: 6px 0
+			&:hover
+				color: #86ab27
+	&__account
+		width: 30%
+		float: left
+		position: relative
+		padding: 19px 0 0
+		&::after
+			content: ''
+			width: 16px
+			height: 15px
+			position: absolute
+			top: 20px
+			left: -18px
+			background: url(../images/icon-man.gif)
+		a 
+			display: block
+			font-weight: bold
+			padding: 2px 0
+			&:hover
+				color: #86ab27
+.card-order
+	width: 10%
+	float: left
+	padding: 10px 10px 5px 56px
+	position: relative
+	+mobile
+		width: 50%
+		float: right
+		padding: 20px 0
+	&::after
+		content: ''
+		position: absolute
+		top: 12px
+		left: 8px
+		background: url(../images/icon-card.gif)
+		width: 39px
+		height: 35px
+		+mobile
+			left: -50px
+	.card-main
+		font-size: 18px
+		font-weight: bold
+		display: inline-block
+	.card-text
+		font-size: 12px
+		display: inline-block
+		padding: 6px 0
 .header-catalog
 	background: url(../images/bg_catalog_menu.gif) 0 0 repeat
 	padding: 2px 0
@@ -150,6 +219,16 @@ body
 		border-right: 1px solid #b6b7ba
 		padding: 12px 12px 14px 16px
 		box-sizing: border-box
+		+mobile
+			width: 100%
+			border-bottom: 1px solid #b6b7ba
+			text-align: center
+			margin: 2px 0
+		+tablet
+			width: 100%
+			border-bottom: 1px solid #b6b7ba
+			text-align: center
+			margin: 2px 0
 	.link-drop
 		padding: 9px 32px 14px 10px
 		position: relative
@@ -161,6 +240,11 @@ body
 			top: 12px
 			right: 4px
 			border-top-color: #9f9fa0
+			+mobile
+				right: 43%
+				margin: 2px 0
+			+tablet
+				right: 44%
 	.last-link
 		border: 0
 		padding: 9px 12px 14px 9px
@@ -173,6 +257,11 @@ body
 			top: 12px
 			right: -5px
 			border-top-color: #9f9fa0
+			+mobile
+				right: 45%
+				border-bottom: 1px solid #b6b7ba
+			+tablet
+				right: 45%
 .slider-box
 	img
 		width: 100%
@@ -189,8 +278,12 @@ body
 		margin: 3px 2px 15px
 		border: 1px solid #999999
 		border-radius: 3px
+		+mobile
+			width: 100%
 		&__main
 			padding: 24px 23px 15px
+			+tablet
+				padding: 23px 5px 15px
 		.box-main
 			background: url(../images/bg-main.gif) 0 0 repeat
 			box-sizing: border-box
@@ -213,9 +306,16 @@ body
 			width: 100%
 			font-size: 16px
 			padding: 13px 0
+			+mobile
+				text-align: center
+			+tablet
+				text-align: center
 			a 
 				padding-left: 56px
 				position: relative
+				+tablet
+					display: inline-block
+					padding: 5px 34px
 				&::before
 					content: ''
 					position: absolute
@@ -224,6 +324,9 @@ body
 					background: url(../images/icon-cheked.gif)
 					width: 20px
 					height: 20px
+					+tablet
+						left: -1%
+						top: 4px
 		&__order
 			padding: 10px 0 6px
 			@extend %clearfix
@@ -251,6 +354,10 @@ body
 						background: url(../images/icon-calculator.gif)
 						width: 14px
 						height: 17px
+						+tablet
+							left: 19%
+						+mobile
+							left: 30%
 			&__btn
 				width: 51%
 				float: left
@@ -263,6 +370,9 @@ body
 					border-radius: 4px
 					margin: 17px 0
 					padding: 5px 61px
+					+tablet
+						padding: 6px 28px
+						margin: 17px 24px
 		&__slider
 			background: #f2f2f2
 			.slider-main
@@ -281,9 +391,13 @@ body
 	margin: 9px 17px 
 	text-align: center
 	background: #fff
+	+tablet
+		width: 44%
+		margin: 9px 5px 9px 12px
 	img 
 		width: 100%
 		height: auto
+
 .slider-text
 	display: inline-block
 	font-size: 1.2em
@@ -334,8 +448,329 @@ body
 			background: url(../images/icon-arrow.gif)
 			width: 15px
 			height: 15px
+			+mobile
+				right: 33%
+			+tablet
+				right: 27%
 .service
 	display: flex
-	display: flex
 	flex-flow: row wrap
-	justify-content: space-around
+	justify-content: flex-start
+	margin: 29px 0
+	&--item
+		width: 30%
+		padding: 20px 40px 4px 135px
+		box-sizing: border-box
+		margin-left: 18px
+		background: rgb(221,219,224)
+		background: -moz-linear-gradient(-45deg, rgba(221,219,224,1) 1%, rgba(255,255,255,1) 100%)
+		background: -webkit-linear-gradient(-45deg, rgba(221,219,224,1) 1%,rgba(255,255,255,1) 100%)
+		background: linear-gradient(135deg, rgba(221,219,224,1) 1%,rgba(255,255,255,1) 100%)
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddbe0', endColorstr='#ffffff',GradientType=1 ) 
+		-webkit-box-shadow: -1px 0px 16px 0px rgba(227, 227, 227, 1)
+		-moz-box-shadow:    -1px 0px 16px 0px rgba(227, 227, 227, 1)
+		box-shadow:         -1px 0px 16px 0px rgba(227, 227, 227, 1)
+		+mobile
+			width: 97%
+			margin: 10px 56px
+			padding: 20px 40px 70px 135px
+		+tablet
+			width: 97%
+			margin: 10px 56px
+			padding: 20px 40px 70px 135px
+		.service-link 
+			position: relative
+			&::after
+				content: '' 
+				position: absolute
+				top: -24px
+				left: -117px
+				background: url(../images/service-master.png) 0 0 no-repeat
+				width: 150px
+				height: 111px
+	&--last
+		width: 32%
+		padding: 20px 0px 4px 169px
+		+mobile
+			width: 97%
+			margin: 10px 56px
+			padding: 20px 40px 52px 170px
+.service-text
+	font-weight: bold
+	font-size: 1.4em
+	text-transform: uppercase			
+.service-link2
+	position: relative
+	&::after
+		content: '' 
+		position: absolute
+		top: -22px
+		left: -112px
+		background: url(../images/service-phone.png) 0 0 no-repeat
+		width: 150px
+		height: 111px
+.service-link3
+	position: relative
+	padding: 0 0
+	box-sizing: border-box
+	&::after
+		content: '' 
+		position: absolute
+		top: -24px
+		left: -168px
+		background: url(../images/service-shiping.png) 0 0 no-repeat
+		width: 150px
+		height: 111px
+.article
+	margin: 38px 20px
+	&--main
+		font-size: 2em
+	&--text
+		font-size: 1.3em
+		a 
+			color: #3a6d8a
+.info-gallery
+	@extend %clearfix
+	margin: 0 20px 15px
+.info	
+	width: 46%
+	float: left
+	position: relative
+	&--main
+		font-size: 2em
+	&--content
+		display: flex
+		flex-flow: row wrap
+		justify-content: flex-start
+		
+	&::after
+		content: ''
+		position: absolute
+		top: 7px
+		left: 185px
+		background: url(../images/arrow-up.gif)
+		width: 26px
+		height: 27px
+		+mobile
+			left: 50%
+		+tablet
+			left: 50%
+	&::before
+		content: ''
+		position: absolute
+		bottom: 27px
+		left: 185px
+		background: url(../images/arrow-dw.gif)
+		width: 26px
+		height: 27px
+		+mobile
+			left: 50%
+			bottom: -9px
+		+tablet
+			left: 50%
+			bottom: 0
+.info-box
+	width:  41%
+	margin: 10px 32px 10px 1px
+	padding: 12px 0	
+	+mobile
+		width: 100%
+	+tablet
+		width: 100%
+	img
+		width: 100%
+		height: auto
+	&__data
+		display: block
+		font-size: 1.3em
+		padding: 5px 0
+	&__text
+		display: block
+		font-size: 1.1em
+		text-decoration: underline
+	&__expand
+		padding: 19px 0 5px
+		display: inline-block
+		text-decoration: underline
+		color: #5e5e5e
+
+.gallery
+	width: 54%
+	float: left
+	position: relative
+	&--main
+		font-size: 2em
+		padding-bottom: 9px
+	&--content
+		display: flex
+		flex-flow: row wrap
+		justify-content: flex-start
+		img
+			display: inline-block
+			padding: 12px 4px 0
+	&--text
+		padding: 19px 0 5px
+		display: inline-block
+		text-decoration: underline
+		a 
+			color: #5e5e5e
+	&::after
+		content: ''
+		position: absolute
+		top: 49%
+		left: -35px
+		background: url(../images/arrow-pref.gif)
+		width: 27px
+		height: 27px
+	&::before
+		content: ''
+		position: absolute
+		top: 49%
+		right: -20px
+		background: url(../images/arrow-next.gif)
+		width: 27px
+		height: 27px
+.footer
+	padding: 21px 0 0
+	background: rgb(171,177,189)
+	background: -moz-linear-gradient(top, rgba(171,177,189,1) 0%, rgba(197,202,208,1) 4%, rgba(206,210,215,1) 6%, rgba(209,212,217,1) 11%, rgba(209,212,217,1) 100%)
+	background: -webkit-linear-gradient(top, rgba(171,177,189,1) 0%,rgba(197,202,208,1) 4%,rgba(206,210,215,1) 6%,rgba(209,212,217,1) 11%,rgba(209,212,217,1) 100%)
+	background: linear-gradient(to bottom, rgba(171,177,189,1) 0%,rgba(197,202,208,1) 4%,rgba(206,210,215,1) 6%,rgba(209,212,217,1) 11%,rgba(209,212,217,1) 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#abb1bd', endColorstr='#d1d4d9',GradientType=0 )
+	@extend %clearfix
+	+mobile
+		width: 100%
+		overflow: hidden
+		box-sizing: border-box
+		padding: 1px
+	.f--left
+		width: 25%
+		float: left
+		padding: 0 0
+		+mobile
+			width: 95%
+			margin: 20px
+		+tablet
+			margin: 0 10px
+		img
+			width: 100%
+			height: auto
+			+mobile
+				width: 60%
+.f-contact
+	.phone
+		font-size: 1.3px
+		font-weight: 600
+		display: inline-block
+		color: #595858
+		b 
+			font-size: 21px
+			color: #000
+		+mobile
+			width: 100%
+			font-size: 1em
+			b 
+				font-size: 1.5em
+	a 
+		display: inline-block
+		margin-right: 27px
+		font-size: 1.1em
+		color: #ed462f
+		border-bottom: 1px dashed #ed462f
+.contact-text-f
+	font-size: 1.1em
+	font-weight: 300
+	a 
+		color: #4e7d34
+		text-decoration: underline
+.social
+	padding: 10px 0
+	a 
+		display: inline-block
+		width: 22px
+		height: 22px
+		padding: 0 1px
+	&--vk
+		background: url(../images/social.gif) 0 0 no-repeat
+	&--fb
+		background: url(../images/social.gif) 0 -23px no-repeat
+	&--tw
+		width: 26px
+		background: url(../images/social.gif) 0 -48px no-repeat
+	&--ok
+		background: url(../images/social.gif) 0 -72px no-repeat
+	&--insta
+		background: url(../images/social.gif) 0 -97px no-repeat
+	&--yt
+		background: url(../images/social.gif) 0 -121px no-repeat
+.f--center
+	width: 40%
+	float: left
+	padding-left: 33px
+	+mobile
+		width: 95%
+		margin: 40px 0 0
+		padding-left: 20px
+	&__main
+		font-weight: bold
+	ul
+		list-style: none
+		display: inline-block
+		vertical-align: top
+		margin-right: 20px
+		padding: 0
+		li 
+			margin-bottom: 7px
+			a 
+				color: #454d58
+				text-decoration: underline
+				&:hover
+					text-decoration: none
+.f--rigth
+	width: 27%
+	float: left
+	position: relative
+	+mobile
+		width: 92%
+		margin: 0 20px 50px
+
+	p 
+		font-size: 1.1em
+		color: #7b838c
+		a 
+			color: #4e7d34
+			text-decoration: underline
+			&:hover
+				text-decoration: none
+	&::after
+		content: ''
+		position: absolute
+		bottom: -43px
+		left: 0
+		background: url(../images/pay-img.gif) no-repeat
+		width: 100%
+		height: 50px
+.footer--last
+	background: #000
+	padding: 10px
+	text-align: center
+	@extend %clearfix
+	&__text
+		color: #8e9098
+		width: 30%
+		float: left
+	&__link
+		width: 70%
+		float: left
+		text-align: right
+		a 
+			display: inline-block
+			font-size: 1.2em
+			padding: 0 14px
+			color: #fff
+			&:hover
+				color: #e5113a
+			+tablet
+				display: block
+			+mobile
+				display: block

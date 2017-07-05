@@ -14,14 +14,20 @@
 <body>
 	<div class="container">
 		<header class="header">
-			<div class="header__link">
-				<a href="#">Главная</a>
-				<a href="#">Новости</a>
-				<a href="#">Статьи</a>
-				<a href="#">Доставка</a>
-				<a href="#">Оплата</a>
-				<a href="#">Условия</a>
-				<a href="#">Контакты</a>
+			<div class="header__menu">
+				<div class="menu">
+					<div class="menu__icon"><i class="fa fa-bars" aria-hidden="true"></i>
+					</div>
+					<div class="menu__nav">
+						<a href="#">Главная</a>
+						<a href="#">Новости</a>
+						<a href="#">Статьи</a>
+						<a href="#">Доставка</a>
+						<a href="#">Оплата</a>
+						<a href="#">Условия</a>
+						<a href="#">Контакты</a>
+					</div>
+				</div>
 			</div>
 			<div class="header__btn">
 				<form action="">
@@ -308,17 +314,119 @@
 		</main>
 		<div class="service">
 			<div class="service--item">
-				<a href="#"><img src="images/service-img.png" width="323" height="157" alt="Service"></a>
+				<a href="#" class="service-link"><span class="service-text">монтаж нашими специалистами в спб</span></a>
 			</div>
 			<div class="service--item">
-				<a href="#"><img src="images/service-img(2).png" width="323" height="157" alt="Service"></a>
+				<a href="#" class="service-link2"><span class="service-text">подобрать оборудование</span></a>
 			</div>
-			<div class="service--item">
-				<a href="#"><img src="images/service-img(3).png" width="326" height="157" alt=""></a>
+			<div class="service--item service--last">
+				<a href="#" class="service-link3"><span class="service-text">бесплатная доставка по спб</span></a>
 			</div>
 		</div>
+		<article class="article">
+			<h2 class="article--main">О магазине</h2>
+			<p class="article--text">Основными направлениями деятельности компании являются альтернативная энергетика, резервное и автономное электроснабжение. Мы предлагаем оборудование и комплексные системы автономного или резервного электроснабжения, включая солнечные электростанции,от простых вариантов для дачи и до больших сетевых систем высокой мощности.Мы осуществляем проектирование, поставку и монтаж оборудования, пусконаладочные работы и техническую поддержку заказчика. Наша компания предлагает оборудование через розничный интернет-магазин SolarElectro и оптовые поставки оборудования из Европы и Китая. Прямые контакты с производителями и дистрибьюторами позволяют в короткие сроки осуществить поставку товаров, в том числе и под заказ. Мы организуем доставку в любой регион России. <a href="#">Читать весь текст>></a></p>
+		</article>
+		<div class="info-gallery">
+			<div class="info">
+				<h2 class="info--main">Новости</h2>
+				<div class="info--content">
+					<div class="info-box">
+						<img src="uploads/info-img.png" width="179" height="84" alt="New">
+						<span class="info-box__data">1.05.2017</span>
+						<span class="info-box__text">Праздники продолжаются!!!  Скидка 15% на Stark Country</span>
+						<a href="#" class="info-box__expand">Все новости</a>
+					</div>
+					<div class="info-box">
+						<img src="uploads/info-img.png" width="179" height="84" alt="New">
+						<span class="info-box__data">1.05.2017</span>
+						<span class="info-box__text">Праздники продолжаются!!!  Скидка 15% на Stark Country</span>
+					</div>
+				</div>
+				<h2 class="info--main">Статьи</h2>
+				<div class="info--content">
+					<div class="info-box">
+						<img src="uploads/article-img.png" width="179" height="84" alt="New">
+						<span class="info-box__data">1.05.2017</span>
+						<span class="info-box__text">Праздники продолжаются!!!  Скидка 15% на Stark Country</span>
+						<a href="#" class="info-box__expand">Все новости</a>
+					</div>
+					<div class="info-box">
+						<img src="uploads/article-img.png" width="179" height="84" alt="New">
+						<span class="info-box__data">1.05.2017</span>
+						<span class="info-box__text">Праздники продолжаются!!!  Скидка 15% на Stark Country</span>
+					</div>
+				</div>
+			</div>
+			<div class="gallery">
+				<h2 class="gallery--main">Наши работы</h2>
+				<div class="gallery--content">
+					<img src="uploads/promo-work(1).jpg" width="161" height="174" alt="Gallery">
+					<img src="uploads/promo-work(2).jpg" width="161" height="174" alt="Gallery">
+					<img src="uploads/promo-work(3).jpg" width="161" height="174" alt="Gallery">
+					<img src="uploads/promo-work(4).jpg" width="161" height="174" alt="Gallery">
+					<img src="uploads/promo-work(5).jpg" width="161" height="174" alt="Gallery">
+					<img src="uploads/promo-work(6).jpg" width="161" height="174" alt="Gallery">
+				</div>
+				<span class="gallery--text"><a href="#">Посмотреть наши работы</a></span>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="f--left">
+				<div class="f--left__logo"><img src="uploads/logo2.png" width="373" height="76" alt="Logo"></div>	
+				<div class="f--left__contact">
+					<div class="f-contact">
+						<span class="phone">+7 (812) <b>389–58-51</b></span>
+						<span class="phone">+7 (812) <b>995–54-98</b></span>
+						<a href="#">Задать вопрос</a>
+						<a href="#">Перезвонить мне</a>
+					</div>
+					<p class="contact-text-f">г. Санкт-Петербург, ул. Мебельная, д.12,к. 1, лит А, <a href="#">contact@solarelectro.ru</a></p>
+					<div class="social">
+						<a class="social--vk" href="#"></a>
+						<a class="social--fb" href="#"></a>
+						<a class="social--tw" href="#"></a>
+						<a class="social--ok" href="#"></a>
+						<a class="social--insta" href="#"></a>
+						<a class="social--yt" href="#"></a>
+					</div>
+				</div>
+			</div>
+			<div class="f--center">
+				<h3 class="f--center__main">Каталог</h3>
+				<ul>
+					<li><a href="#">Солнечные электростанции</a></li>
+					<li><a href="#">Солнечные батареи</a></li>
+					<li><a href="#">ИБП для дома</a></li>
+					<li><a href="#">Аккумуляторы</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">Инверторы</a></li>
+					<li><a href="#">Контроллеры</a></li>
+					<li><a href="#">Генераторы</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">Разное</a></li>
+				</ul>
+			</div>
+			<div class="f--rigth">
+				<h3 class="f--center__main">Способ оплаты</h3>
+				<p>Вы можете оплатить покупки наличными при получении, либо выбрать <a href="#">другой способ оплаты</a></p>
+			</div>
+		</footer>
+		<div class="footer--last">
+				<span class="footer--last__text">© SolarElectro 2013-2016</span>
+				<div class="footer--last__link">
+					<a href="#">Главная</a>
+					<a href="#">Новости</a>
+					<a href="#">Статьи</a>
+					<a href="#">Доставка</a>
+					<a href="#">Оплата</a>
+					<a href="#">Условия</a>
+					<a href="#">Контакты</a>
+				</div>
+			</div>
 	</div>
-
 	<script src="vendor/jquery/jquery-3.1.1.min.js"></script>
 	<script src="vendor/slick/slick.js"></script>
 	<script src="js/main.js"></script>
